@@ -1,0 +1,8 @@
+{
+  "name": "Remix Miel \u0026 Routines",
+  "description": "Application ludique de routines, autonomie et récompenses pour enfants avec mascotte abeille et espace parents.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

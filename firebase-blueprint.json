@@ -1,0 +1,112 @@
+{
+  "entities": {
+    "UserProfile": {
+      "collection": "users",
+      "fields": {
+        "userId": { "type": "string", "required": true },
+        "displayName": { "type": "string", "required": false },
+        "email": { "type": "string", "required": false },
+        "hiveCode": { "type": "string", "required": false },
+        "role": { "type": "string", "required": false },
+        "createdAt": { "type": "timestamp", "required": true },
+        "updatedAt": { "type": "timestamp", "required": true }
+      }
+    },
+    "Hive": {
+      "collection": "hives",
+      "fields": {
+        "hiveCode": { "type": "string", "required": true },
+        "familyName": { "type": "string", "required": true },
+        "ownerUid": { "type": "string", "required": true },
+        "parentPin": { "type": "string", "required": true },
+        "morningReminderTime": { "type": "string", "required": false },
+        "eveningReminderTime": { "type": "string", "required": false },
+        "notifyOnValidation": { "type": "boolean", "required": true },
+        "requireValidationUnderAge7": { "type": "boolean", "required": true },
+        "defaultRequireParentValidation": { "type": "boolean", "required": true },
+        "memberUids": { "type": "array", "required": true },
+        "createdAt": { "type": "timestamp", "required": true },
+        "updatedAt": { "type": "timestamp", "required": true }
+      }
+    },
+    "HiveChild": {
+      "collection": "hives/{hiveCode}/children",
+      "fields": {
+        "childId": { "type": "string", "required": true },
+        "name": { "type": "string", "required": true },
+        "age": { "type": "number", "required": true },
+        "avatarKey": { "type": "string", "required": true },
+        "beeHat": { "type": "string", "required": true },
+        "beeColor": { "type": "string", "required": true },
+        "currentPoints": { "type": "number", "required": true },
+        "totalPointsEarned": { "type": "number", "required": true },
+        "completedMissionsCount": { "type": "number", "required": true },
+        "level": { "type": "number", "required": true },
+        "requiresParentValidation": { "type": "boolean", "required": true },
+        "updatedAt": { "type": "timestamp", "required": true }
+      }
+    },
+    "HiveMission": {
+      "collection": "hives/{hiveCode}/missions",
+      "fields": {
+        "missionId": { "type": "string", "required": true },
+        "targetChildId": { "type": "string", "required": true },
+        "title": { "type": "string", "required": true },
+        "description": { "type": "string", "required": false },
+        "category": { "type": "string", "required": true },
+        "points": { "type": "number", "required": true },
+        "period": { "type": "string", "required": true },
+        "specificTime": { "type": "string", "required": false },
+        "daysOfWeek": { "type": "string", "required": true },
+        "iconKey": { "type": "string", "required": true },
+        "requiresParentValidation": { "type": "boolean", "required": true },
+        "minAge": { "type": "number", "required": true },
+        "maxAge": { "type": "number", "required": true },
+        "isArchived": { "type": "boolean", "required": true },
+        "updatedAt": { "type": "timestamp", "required": true }
+      }
+    },
+    "HiveCompletion": {
+      "collection": "hives/{hiveCode}/completions",
+      "fields": {
+        "completionId": { "type": "string", "required": true },
+        "missionId": { "type": "string", "required": true },
+        "childId": { "type": "string", "required": true },
+        "childName": { "type": "string", "required": true },
+        "childAge": { "type": "number", "required": true },
+        "missionTitle": { "type": "string", "required": true },
+        "dateStr": { "type": "string", "required": true },
+        "status": { "type": "string", "required": true },
+        "completedTimestamp": { "type": "number", "required": true },
+        "validatedTimestamp": { "type": "number", "required": false },
+        "updatedAt": { "type": "timestamp", "required": true }
+      }
+    },
+    "HiveReward": {
+      "collection": "hives/{hiveCode}/rewards",
+      "fields": {
+        "rewardId": { "type": "string", "required": true },
+        "title": { "type": "string", "required": true },
+        "description": { "type": "string", "required": false },
+        "costPoints": { "type": "number", "required": true },
+        "iconKey": { "type": "string", "required": true },
+        "isActive": { "type": "boolean", "required": true },
+        "updatedAt": { "type": "timestamp", "required": true }
+      }
+    },
+    "HiveRedemption": {
+      "collection": "hives/{hiveCode}/redemptions",
+      "fields": {
+        "redemptionId": { "type": "string", "required": true },
+        "rewardId": { "type": "string", "required": true },
+        "rewardTitle": { "type": "string", "required": true },
+        "childId": { "type": "string", "required": true },
+        "childName": { "type": "string", "required": true },
+        "costPoints": { "type": "number", "required": true },
+        "status": { "type": "string", "required": true },
+        "createdAt": { "type": "timestamp", "required": true },
+        "updatedAt": { "type": "timestamp", "required": true }
+      }
+    }
+  }
+}
